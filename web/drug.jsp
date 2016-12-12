@@ -218,6 +218,7 @@ period_max, overdose_quantity, overdose_period, period_unit_id
              <tr><th></th><td><input type="submit" value="Submit" onclick="return validateFormValues()"/></td> </tr>
             </table>
             </form>
+      <%--
          <table  border="10" cellpadding="10" align="center" >
          <caption><h2>Health care provider</h2></caption>
          <tr>
@@ -255,7 +256,7 @@ period_max, overdose_quantity, overdose_period, period_unit_id
          </tr>
          </c:forEach>
          </table>
-        
+       --%> 
     </body>
 </html>
 

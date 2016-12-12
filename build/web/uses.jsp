@@ -39,7 +39,7 @@
         <form name="uses" action="saveuses.jsp" method="POST">
          <table border="10" cellpadding="10" align="center">  
              <caption>
-                 <h2>Drug</h2>
+                 <h2>Drug use</h2>
             </caption>
              <tr><th align="left">Drug Number</th><td><input type="text" name="drug_number" value="<%= dr.getDrug_number() %>" /></td> </tr>
              <tr><th align="left">Drug Use </th>

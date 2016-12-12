@@ -1,10 +1,12 @@
 <%-- 
-    Document   : uses
-    Created on : Dec 10, 2016, 4:17:35 AM
+    Document   : drugusewarnings
+    Created on : Dec 11, 2016, 5:49:32 AM
     Author     : Gitobu
 --%>
+
 <jsp:directive.include file="sqllink.jsp"/>
-<jsp:useBean id="du" class="com.otc.Uses" scope="session"/>
+
+<jsp:useBean id="dw" class="com.otc.Drug_use_warnings" scope="session"/>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,8 +19,8 @@
             if (document.uses.drug_number.value === ""){
                     alert('Please enter drug number');
                     return false;} 
-            if (document.uses.drug_use_id.value === ""){
-                    alert('Please enter drug name');
+            if (document.uses.use_warning_id.value === ""){
+                    alert('Please select use warning');
                     return false;} 
                             else
                     {
@@ -28,27 +30,27 @@
         </script>
     </head>
     <body>
-        <sql:query dataSource="${snapshot}" var="dru">
-        SELECT drug_use_id, drug_use_description
-        FROM drug_use
-        ORDER BY drug_use_description
+        <sql:query dataSource="${snapshot}" var="duw">
+        SELECT use_warning_id, use_warning_description
+        FROM use_warning
+        ORDER BY use_warning_description
         </sql:query> 
         
 
         
-        <form name="uses" action="saveuses.jsp" method="POST">
+        <form name="usewarning" action="saveusewarning.jsp" method="POST">
          <table border="10" cellpadding="10" align="center">  
              <caption>
-                 <h2>Drug use</h2>
+                 <h2>Use warning</h2>
             </caption>
              <tr><th align="left">Drug Number</th><td><input type="text" name="drug_number" value="<%= dr.getDrug_number() %>" /></td> </tr>
-             <tr><th align="left">Drug Use </th>
+             <tr><th align="left">Use warning </th>
                  <td>
-                <select name="drug_use_id">
-                <option value="">[Select drug use]</option>
-                <c:forEach var="row" items="${dru.rows}">
-                <option value="${row.drug_use_id}" ${row.drug_use_id == du.getDrug_use_id()? 'selected="selected"' : ''}> 
-                    ${row.drug_use_description}
+                <select name="use_warning_id">
+                <option value="">[Select use warning]</option>
+                <c:forEach var="row" items="${duw.rows}">
+                <option value="${row.use_warning_id}" ${row.use_warning_id == dw.getUse_warning_id()? 'selected="selected"' : ''}> 
+                    ${row.use_warning_description}
                 </option>
                 </c:forEach>
                 </select>  
@@ -59,3 +61,4 @@
             </form>
     </body>
 </html>
+

@@ -45,16 +45,16 @@
             <c:set var="quantity_max" value="<%= request.getParameter("quantity_max")%>" />
             <c:set var="period_min" value="<%= request.getParameter("period_min")%>" />
             <c:set var="period_max" value="<%= request.getParameter("period_max")%>" />
-           --%>
+          
             <c:set var="overdose_quantity" value="<%= request.getParameter("overdose_quantity")%>" />
             <c:set var="overdose_period" value="<%= request.getParameter("overdose_period")%>" />
             <c:set var="period_unit_id" value="<%= request.getParameter("period_unit_id")%>" />
-    
+     --%>
             <sql:update dataSource="${snapshot}" var="result">
             insert into drug (drug_number, 
                                     drug_name, 
                                     drug_strength, 
-                                    drug_form_id, 
+                                    drug_form_id 
                                     <%--
                                     age_min, 
                                     age_max, 
@@ -62,10 +62,12 @@
                                     quantity_max, 
                                     period_min, 
                                     period_max,
-                                    --%>
+                                    
                                     overdose_quantity, 
                                     overdose_period, 
-                                    period_unit_id)
+                                    period_unit_id
+                                    --%>
+                                    )
             values ('${drug_number}', 
                                     '${drug_name}',
                                     '${drug_strength}',
@@ -77,10 +79,12 @@
                                     ${quantity_max},
                                     ${period_min},
                                     ${period_max},
-                                    --%>
+                                    
                                     ${overdose_quantity},
                                     ${overdose_period},
-                                    ${period_unit_id})
+                                    ${period_unit_id}
+                                    --%>
+                                    )
             </sql:update> 
             
             <jsp:setProperty name="dr" property="drug_number" value="${drug_number}"/>

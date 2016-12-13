@@ -13,7 +13,7 @@
         <title>Dosage Details</title>
     </head>
     <body>
-        <c:set var="search_string" value="<%= request.getParameter("search")%>" />
+        <c:set var="drug_number" value="<%= request.getParameter("drug_number")%>" />
         
         <sql:query dataSource="${snapshot}" var="dosage_det">
         select d.drug_number, concat(d.age_min, case when d.age_max = 99 then ' years and over' else concat(' to ', d.age_max, ' years') end) age_limit, 
@@ -21,12 +21,12 @@
         concat(d.quantity_min, df.drug_form_description, ' in ', d.period_min, ' to ', d.period_max, ' ', pu.period_unit_description) 
         else 
         concat(d.quantity_min, ' to ', d.quantity_max, ' ', LOWER(df.drug_form_description), 's in ', d.period_min, ' to ', d.period_max, ' ', pu.period_unit_description) 
-        end 
+        end drug_quantity,overdose_period, overdose_quantity
         from dosage d, period_unit pu, drug dr, drug_form df
         where d.period_unit_id = pu.period_unit_id
         and d.drug_number = dr.drug_number
         and dr.drug_form_id = df.drug_form_id
-        and d.drug_number like '${search_string}';
+        and d.drug_number = ${drug_number};
        </sql:query>
         <table border="10" cellpadding="10">
         
@@ -40,8 +40,8 @@
          <c:forEach var="row" items="${dosage_det.rows}">
          <tr>   
              
-             <td><c:out value="${row.age}"/></td>
-            <td><c:out value="${row.dosage}"/></td>
+             <td><c:out value="${row.age_limit}"/></td>
+            <td><c:out value="${row.drug_quantity}"/></td>
                  
             
          </tr>

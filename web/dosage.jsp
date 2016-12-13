@@ -43,6 +43,8 @@
              <tr><th align="left">Max Quantity</th><td><input type="text" name="quantity_max" /></td> </tr>
              <tr><th align="left">Min Period</th><td><input type="text" name="period_min" /></td> </tr>
              <tr><th align="left">Max Period</th><td><input type="text" name="period_max" /></td></tr>
+             <tr><th align="left">Overdose Quantity</th><td><input type="text" name="overdose_quantity" /></td> </tr>
+             <tr><th align="left">Overdose Period</th><td><input type="text" name="overdose_period" /></td> </tr>
              <tr><th align="left">Period Unit</th>               
                <td>
                 <select name="period_unit_id"> 

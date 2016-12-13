@@ -175,10 +175,10 @@ period_max, overdose_quantity, overdose_period, period_unit_id
              <tr><th align="left">Min Period</th><td><input type="text" name="period_min" value="<%= dr.getPeriod_min() %>"></td> </tr>
              
              <tr><th align="left">Max Period</th><td><input type="text" name="period_max" value="<%= dr.getPeriod_max() %>"></td> </tr>
-             --%>
+             
              <tr><th align="left">Overdose Quantity</th><td><input type="text" name="overdose_quantity" value="<%= dr.getOverdose_quantity() %>"></td> </tr>
              <tr><th align="left">Overdose Period</th><td><input type="text" name="overdose_period" value="<%= dr.getOverdose_period() %>"></td> </tr>
-             
+             --%>
               
              </c:when>
              <c:when test='${new_mode}'>                 
@@ -207,10 +207,10 @@ period_max, overdose_quantity, overdose_period, period_unit_id
              <tr><th align="left">Min Period</th><td><input type="text" name="period_min" /></td> </tr>
              
              <tr><th align="left">Max Period</th><td><input type="text" name="period_max" /></td> 
-            --%>
+            
             <tr><th align="left">Overdose Quantity</th><td><input type="text" name="overdose_quantity" /></td> </tr>
              <tr><th align="left">Overdose Period</th><td><input type="text" name="overdose_period" /></td> </tr>
-             
+            --%> 
                
             </c:when> 
              </c:choose> 

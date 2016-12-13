@@ -17,6 +17,8 @@ public class Dosage {
     private int quantity_max;
     private int period_min;
     private int period_max;
+    private int overdose_quantity; 
+    private int overdose_period;
     private int period_unit_id;
     
     public void setDrug_number(int dno){
@@ -43,6 +45,12 @@ public class Dosage {
     public void setPeriod_unit_id(int pui){
 	period_unit_id = pui;
     } 
+    public void setOverdose_quantity (int ovq){
+        overdose_quantity = ovq;
+        }	
+    public void setOverdose_period (int ovp){
+        overdose_period = ovp;
+        }
     public int getDrug_number(){
         return drug_number;
     }
@@ -64,6 +72,12 @@ public class Dosage {
     public int getPeriod_max(){
         return drug_number;
     }
+    public int getOverdose_quantity(){
+        return overdose_quantity;
+        }	
+    public int getOverdose_period(){
+        return overdose_period;
+        }
     public int getPeriod_unit_id(){
 	return period_unit_id;
     } 

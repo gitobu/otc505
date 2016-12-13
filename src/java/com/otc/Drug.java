@@ -14,13 +14,7 @@ public class Drug {
     private String drug_name; 
     private String  drug_strength; 
     private int drug_form_id; 
-    
-    private int overdose_quantity; 
-    private int overdose_period;
-   
-            
 
-    
     public void setDrug_number(int dnu){
         drug_number = dnu;
 	}
@@ -34,12 +28,7 @@ public class Drug {
         drug_form_id = dfi;
         }
    
-    public void setOverdose_quantity (int ovq){
-        overdose_quantity = ovq;
-        }	
-    public void setOverdose_period (int ovp){
-        overdose_period = ovp;
-        }
+   
   
     
     public int getDrug_number(){
@@ -54,17 +43,5 @@ public class Drug {
     public int getDrug_form_id(){
         return drug_form_id;
         }
-    
-    public int getOverdose_quantity(){
-        return overdose_quantity;
-        }	
-    public int getOverdose_period(){
-        return overdose_period;
-        }
 
-      
-    
-    
-    
-    
 }

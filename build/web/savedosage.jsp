@@ -25,7 +25,9 @@
             <c:set var="period_min" value="<%= request.getParameter("period_min")%>" />
             <c:set var="period_max" value="<%= request.getParameter("period_max")%>" />
             <c:set var="period_unit_id" value="<%= request.getParameter("period_unit_id")%>" />
-    
+            <c:set var="overdose_quantity" value="<%= request.getParameter("overdose_quantity")%>" />
+            <c:set var="overdose_period" value="<%= request.getParameter("overdose_period")%>" />
+            
             <sql:update dataSource="${snapshot}" var="result">
             insert into dosage (drug_number, 
                                     age_min, 
@@ -34,7 +36,10 @@
                                     quantity_max, 
                                     period_min, 
                                     period_max,
+                                    overdose_quantity, 
+                                    overdose_period, 
                                     period_unit_id)
+                                    
                             values ('${drug_number}', 
                                     ${age_min},
                                     ${age_max},
@@ -42,6 +47,8 @@
                                     ${quantity_max},
                                     ${period_min},
                                     ${period_max},
+                                    ${overdose_quantity},
+                                    ${overdose_period},
                                     ${period_unit_id})
             </sql:update> 
             

@@ -38,12 +38,14 @@
             <c:set var="drug_name" value="<%= request.getParameter("drug_name")%>" />
             <c:set var="drug_strength" value="<%= request.getParameter("drug_strength")%>" />
             <c:set var="drug_form_id" value="<%= request.getParameter("drug_form_id")%>" />
+            <%--
             <c:set var="age_min" value="<%= request.getParameter("age_min")%>" />
             <c:set var="age_max" value="<%= request.getParameter("age_max")%>" />
             <c:set var="quantity_min" value="<%= request.getParameter("quantity_min")%>" />
             <c:set var="quantity_max" value="<%= request.getParameter("quantity_max")%>" />
             <c:set var="period_min" value="<%= request.getParameter("period_min")%>" />
             <c:set var="period_max" value="<%= request.getParameter("period_max")%>" />
+           --%>
             <c:set var="overdose_quantity" value="<%= request.getParameter("overdose_quantity")%>" />
             <c:set var="overdose_period" value="<%= request.getParameter("overdose_period")%>" />
             <c:set var="period_unit_id" value="<%= request.getParameter("period_unit_id")%>" />
@@ -53,12 +55,14 @@
                                     drug_name, 
                                     drug_strength, 
                                     drug_form_id, 
+                                    <%--
                                     age_min, 
                                     age_max, 
                                     quantity_min, 
                                     quantity_max, 
                                     period_min, 
-                                    period_max, 
+                                    period_max,
+                                    --%>
                                     overdose_quantity, 
                                     overdose_period, 
                                     period_unit_id)
@@ -66,12 +70,14 @@
                                     '${drug_name}',
                                     '${drug_strength}',
                                     ${drug_form_id},
+                                    <%--
                                     ${age_min},
                                     ${age_max},
                                     ${quantity_min},
                                     ${quantity_max},
                                     ${period_min},
                                     ${period_max},
+                                    --%>
                                     ${overdose_quantity},
                                     ${overdose_period},
                                     ${period_unit_id})
@@ -83,13 +89,15 @@
         SELECT drug.drug_number, 
         drug.drug_name, 
         drug.drug_strength, 
-        drug_form.drug_form_description, 
+        drug_form.drug_form_description,
+        <%--
         drug.age_min, 
         drug.age_max, 
         drug.quantity_min, 
         drug.quantity_max, 
         drug.period_min, 
         drug.period_max, 
+        --%>
         drug.overdose_quantity, 
         drug.overdose_period, 
         period_unit.period_unit_description 
@@ -107,12 +115,14 @@
             <th>Drug Name</th>
             <th>Drug Strength</th>
             <th>Drug Form</th>
+        <%--
             <th>Min Age</th>
             <th>Max Age</th>
             <th>Min Quantity</th>
             <th>Max Quantity</th>
             <th>Min Period</th>
             <th>Max Period</th>
+        --%>
             <th>Overdose Quantity</th>
             <th>Overdose Period</th>
             <th>Overdose Period Description</th>
@@ -124,12 +134,14 @@
             <td><c:out value="${row.drug_name}"/></td>
             <td><c:out value="${row.drug_strength}"/></td>
             <td><c:out value="${row.drug_form_description}"/></td>
+        <%--
             <td><c:out value="${row.age_min}"/></td>
             <td><c:out value="${row.age_max}"/></td>
             <td><c:out value="${row.quantity_min}"/></td>
             <td><c:out value="${row.quantity_max}"/></td>
             <td><c:out value="${row.period_min}"/></td>
             <td><c:out value="${row.period_max}"/></td>
+        --%>
             <td><c:out value="${row.overdose_quantity}"/></td>
             <td><c:out value="${row.overdose_period}"/></td>
             <td><c:out value="${row.period_unit_description}"/></td>

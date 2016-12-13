@@ -5,7 +5,7 @@
 --%>
 
 <jsp:directive.include file="sqllink.jsp"/>
-
+<jsp:useBean id="dos" class="com.otc.Dosage" scope="session"/>
 
 <html>
     <head><title>Drug</title>
@@ -42,7 +42,19 @@
              <tr><th align="left">Min Quantity</th><td><input type="text" name="quantity_min" /></td> </tr>
              <tr><th align="left">Max Quantity</th><td><input type="text" name="quantity_max" /></td> </tr>
              <tr><th align="left">Min Period</th><td><input type="text" name="period_min" /></td> </tr>
-             <tr><th align="left">Max Period</th><td><input type="text" name="period_max" /></td> 
+             <tr><th align="left">Max Period</th><td><input type="text" name="period_max" /></td></tr>
+             <tr><th align="left">Period Unit</th>               
+               <td>
+                <select name="period_unit_id"> 
+                <option value="">[Select period Unit]</option>
+                <c:forEach var="row" items="${pu.rows}">
+                <option value="${row.period_unit_id}" ${row.period_unit_id == dos.getPeriod_unit_id()? 'selected="selected"' : ''}> 
+                    ${row.period_unit_description}
+                </option>
+                </c:forEach>
+                </select>  
+                </td> 
+              </tr>  
              <tr><th></th><td><input type="submit" value="Submit" onclick="return validateFormValues()"/></td> </tr>
             </table>
             </form>

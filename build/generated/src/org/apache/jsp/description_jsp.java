@@ -22,6 +22,7 @@ public final class description_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_sql_query_var_dataSource;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_sql_setDataSource_var_user_url_password_driver_nobody;
@@ -34,6 +35,7 @@ public final class description_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_set_var_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_sql_query_var_dataSource = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_sql_setDataSource_var_user_url_password_driver_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -41,6 +43,7 @@ public final class description_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspDestroy() {
     _jspx_tagPool_c_forEach_var_items.release();
+    _jspx_tagPool_c_set_var_value_nobody.release();
     _jspx_tagPool_c_out_value_nobody.release();
     _jspx_tagPool_sql_query_var_dataSource.release();
     _jspx_tagPool_sql_setDataSource_var_user_url_password_driver_nobody.release();
@@ -93,6 +96,21 @@ public final class description_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>Advil</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("        ");
+      //  c:set
+      org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+      _jspx_th_c_set_0.setPageContext(_jspx_page_context);
+      _jspx_th_c_set_0.setParent(null);
+      _jspx_th_c_set_0.setVar("search_string");
+      _jspx_th_c_set_0.setValue( request.getParameter("search"));
+      int _jspx_eval_c_set_0 = _jspx_th_c_set_0.doStartTag();
+      if (_jspx_th_c_set_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_0);
+        return;
+      }
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_0);
+      out.write("\n");
+      out.write("        \n");
       out.write("        ");
       if (_jspx_meth_sql_query_0(_jspx_page_context))
         return;
@@ -181,7 +199,9 @@ public final class description_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("        JOIN period_unit pu ON d.period_unit_id = pu.period_unit_id\n");
           out.write("        JOIN vw_drug_use du ON d.drug_number = du.drug_number\n");
           out.write("        JOIN vw_drug_warning dw ON d.drug_number = dw.drug_number\n");
-          out.write("        WHERE d.drug_number = 305730150309\n");
+          out.write("        WHERE d.drug_number like '");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${search_string}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("'\n");
           out.write("        ");
           int evalDoAfterBody = _jspx_th_sql_query_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

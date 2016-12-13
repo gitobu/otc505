@@ -14,7 +14,7 @@
     </head>
     <body>
         <c:set var="drug_number" value = "${param.drug_number}"/>
-        
+        <%-- 
        <sql:query dataSource="${snapshot}" var="drug_compare">
         SELECT d.drug_number, 
         d.drug_name, 
@@ -36,7 +36,20 @@
         JOIN vw_drug_warning dw ON d.drug_number = dw.drug_number
         where d.drug_number in  (select distinct drug_number from uses where drug_use_id in (select drug_use_id from uses where drug_number = 305730150309));
         </sql:query>
-        
+        --%>
+        <sql:query dataSource="${snapshot}" var="drug_compare">
+        SELECT d.drug_number, 
+        d.drug_name, 
+        du.drug_use,
+        al.age,
+        dw.drug_warning
+        FROM drug d 
+        JOIN drug_form df ON d.drug_form_id = df.drug_form_id 
+        JOIN period_unit pu ON d.period_unit_id = pu.period_unit_id
+        JOIN vw_drug_use du ON d.drug_number = du.drug_number
+        JOIN vw_drug_warning dw ON d.drug_number = dw.drug_number
+        JOIN vw_age_limits al ON d.drug_number = al.drug_number
+        WHERE d.drug_number like '${search_string}'
          <table border="10" cellpadding="10">
         
          <tr>

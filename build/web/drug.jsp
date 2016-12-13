@@ -49,12 +49,14 @@
         drug.drug_strength,
         drug.drug_form_id,
         drug_form.drug_form_description, 
+        <%-- 
         drug.age_min, 
         drug.age_max, 
         drug.quantity_min, 
         drug.quantity_max, 
         drug.period_min, 
         drug.period_max, 
+        --%>
         drug.overdose_quantity, 
         drug.overdose_period,
         drug.period_unit_id,
@@ -72,12 +74,14 @@
         <c:set var="drug_strength" value="${row.drug_strength}"/>
         <c:set var="drug_form_id" value="${row.drug_form_id}"/>
         <c:set var="drug_form_description" value="${row.drug_form_description}"/>
+        <%--
         <c:set var="age_min" value="${row.age_min}"/>
         <c:set var="age_max" value="${row.age_max}"/>
         <c:set var="quantity_min" value="${row.quantity_min}"/>
         <c:set var="quantity_max" value="${row.quantity_max}"/>
         <c:set var="period_min" value="${row.period_min}"/>
         <c:set var="period_max" value="${row.period_max}"/>
+        --%>
         <c:set var="overdose_quantity" value="${row.overdose_quantity}"/>
         <c:set var="overdose_period" value="${row.overdose_period}"/>
         <c:set var="period_unit_id" value="${row.period_unit_id}"/>
@@ -89,12 +93,14 @@
         <jsp:setProperty name="dr" property="drug_name" value="${drug_name}"/>
         <jsp:setProperty name="dr" property="drug_strength" value="${drug_strength}"/>
         <jsp:setProperty name="dr" property="drug_form_id" value="${drug_form_id}"/>
+        <%--
         <jsp:setProperty name="dr" property="age_min" value="${age_min}"/>
         <jsp:setProperty name="dr" property="age_max" value="${age_max}"/>
         <jsp:setProperty name="dr" property="quantity_min" value="${quantity_min}"/>
         <jsp:setProperty name="dr" property="quantity_max" value="${quantity_max}"/>
         <jsp:setProperty name="dr" property="period_min" value="${period_min}"/>
         <jsp:setProperty name="dr" property="period_max" value="${period_max}"/>
+        --%>
         <jsp:setProperty name="dr" property="overdose_quantity" value="${overdose_quantity}"/>
         <jsp:setProperty name="dr" property="overdose_period" value="${overdose_period}"/>
         <jsp:setProperty name="dr" property="period_unit_id" value="${period_unit_id}"/>
@@ -112,13 +118,15 @@
         SELECT drug.drug_number, 
         drug.drug_name, 
         drug.drug_strength, 
-        drug_form.drug_form_description, 
+        drug_form.drug_form_description,
+        <%--
         drug.age_min, 
         drug.age_max, 
         drug.quantity_min, 
         drug.quantity_max, 
         drug.period_min, 
         drug.period_max, 
+        --%>
         drug.overdose_quantity, 
         drug.overdose_period, 
         period_unit.period_unit_description 
@@ -158,6 +166,7 @@ period_max, overdose_quantity, overdose_period, period_unit_id
              <tr><th align="left">Drug Strength</th><td><input type="text" name="drug_strength" value="<%= dr.getDrug_strength() %>"></td> </tr>
             
              <tr><th align="left">Drug Form </th><td><input type="text" name="drug_form_id" value="<%= dr.getDrug_form_id() %>"></td></tr>
+              <%-- 
              <tr><th align="left">Min Age</th><td><input type="text" name="age_min" value="<%= dr.getAge_min() %>"></td> </tr>
              <tr><th align="left">Max Age</th><td><input type="text" name="age_max" value="<%= dr.getAge_max() %>"></td> </tr>
              
@@ -166,10 +175,11 @@ period_max, overdose_quantity, overdose_period, period_unit_id
              <tr><th align="left">Min Period</th><td><input type="text" name="period_min" value="<%= dr.getPeriod_min() %>"></td> </tr>
              
              <tr><th align="left">Max Period</th><td><input type="text" name="period_max" value="<%= dr.getPeriod_max() %>"></td> </tr>
+             --%>
              <tr><th align="left">Overdose Quantity</th><td><input type="text" name="overdose_quantity" value="<%= dr.getOverdose_quantity() %>"></td> </tr>
              <tr><th align="left">Overdose Period</th><td><input type="text" name="overdose_period" value="<%= dr.getOverdose_period() %>"></td> </tr>
              
-              <tr><th align="left">Period Unit</th><td><input type="text" name="period_unit_id" value="<%= dr.getPeriod_unit_id() %>"></td> </tr>
+              
              </c:when>
              <c:when test='${new_mode}'>                 
              <tr><th align="left">Drug Number</th><td><input type="text" name="drug_number" /></td> </tr>
@@ -188,6 +198,7 @@ period_max, overdose_quantity, overdose_period, period_unit_id
                 </select>  
                 </td> 
              </tr>
+             <%--
              <tr><th align="left">Min Age</th><td><input type="text" name="age_min" /></td> </tr>
              <tr><th align="left">Max Age</th><td><input type="text" name="age_max" /></td> </tr>
              
@@ -196,21 +207,11 @@ period_max, overdose_quantity, overdose_period, period_unit_id
              <tr><th align="left">Min Period</th><td><input type="text" name="period_min" /></td> </tr>
              
              <tr><th align="left">Max Period</th><td><input type="text" name="period_max" /></td> 
-             <tr><th align="left">Overdose Quantity</th><td><input type="text" name="overdose_quantity" /></td> </tr>
+            --%>
+            <tr><th align="left">Overdose Quantity</th><td><input type="text" name="overdose_quantity" /></td> </tr>
              <tr><th align="left">Overdose Period</th><td><input type="text" name="overdose_period" /></td> </tr>
              
-              <tr><th align="left">Period Unit</th>               
-               <td>
-                <select name="period_unit_id"> 
-                <option value="">[Select period Unit]</option>
-                <c:forEach var="row" items="${pu.rows}">
-                <option value="${row.period_unit_id}" ${row.period_unit_id == dr.getPeriod_unit_id()? 'selected="selected"' : ''}> 
-                    ${row.period_unit_description}
-                </option>
-                </c:forEach>
-                </select>  
-                </td> 
-              </tr>   
+               
             </c:when> 
              </c:choose> 
 

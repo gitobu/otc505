@@ -3,9 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/comparedrugs.jsp</file>
-            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/description.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/src/java/com/otc/Uses.java</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/drug.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/dosage.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/src/java/com/otc/Drug_Form.java</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/periodUnit.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/src/java/com/otc/Drug_use_warnings.java</file>
             <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/searchdrug.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/saveusewarning.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/drugusewarnings.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/comparedrugs.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/src/java/com/otc/Drug.java</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/saveuses.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/description.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/savedosage.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/savedrug.jsp</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/src/java/com/otc/Dosage.java</file>
+            <file>file:/C:/Users/Gitobu/Documents/NetBeansProjects/otc/web/uses.jsp</file>
         </group>
     </open-files>
 </project-private>

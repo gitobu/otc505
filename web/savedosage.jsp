@@ -24,7 +24,7 @@
             <c:set var="quantity_max" value="<%= request.getParameter("quantity_max")%>" />
             <c:set var="period_min" value="<%= request.getParameter("period_min")%>" />
             <c:set var="period_max" value="<%= request.getParameter("period_max")%>" />
-            
+            <c:set var="period_unit_id" value="<%= request.getParameter("period_unit_id")%>" />
     
             <sql:update dataSource="${snapshot}" var="result">
             insert into dosage (drug_number, 
@@ -33,14 +33,16 @@
                                     quantity_min, 
                                     quantity_max, 
                                     period_min, 
-                                    period_max)
+                                    period_max,
+                                    period_unit_id)
                             values ('${drug_number}', 
                                     ${age_min},
                                     ${age_max},
                                     ${quantity_min},
                                     ${quantity_max},
                                     ${period_min},
-                                    ${period_max})
+                                    ${period_max},
+                                    ${period_unit_id})
             </sql:update> 
             
             <jsp:setProperty name="dr" property="drug_number" value="${drug_number}"/>
@@ -59,7 +61,7 @@
         </sql:query>
         
          <table  border="10" cellpadding="10" align="center" >
-         <caption><h2>Drug</h2></caption>
+         <caption><h2>Dosage</h2></caption>
          <tr>
             <th>Drug Number</th>
             
@@ -75,7 +77,6 @@
          <c:forEach var="row" items="${dos_list.rows}">
          <tr>
             <td><c:out value="${row.drug_number}"/></td>
-            
             <td><c:out value="${row.age_min}"/></td>
             <td><c:out value="${row.age_max}"/></td>
             <td><c:out value="${row.quantity_min}"/></td>

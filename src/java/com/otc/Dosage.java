@@ -17,6 +17,7 @@ public class Dosage {
     private int quantity_max;
     private int period_min;
     private int period_max;
+     private int period_unit_id;
     
     public void setDrug_number(int dno){
         drug_number = dno;
@@ -39,6 +40,9 @@ public class Dosage {
     public void setPeriod_max(int pma){
         period_max = pma;
     }
+    public void setPeriod_unit_id(int pui){
+	period_unit_id = pui;
+    } 
     public int getDrug_number(){
         return drug_number;
     }
@@ -60,4 +64,7 @@ public class Dosage {
     public int getPeriod_max(){
         return drug_number;
     }
+    public int getPeriod_unit_id(){
+	return period_unit_id;
+    } 
 }

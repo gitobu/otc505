@@ -50,6 +50,7 @@
         JOIN vw_drug_warning dw ON d.drug_number = dw.drug_number
         JOIN vw_age_limits al ON d.drug_number = al.drug_number
         WHERE d.drug_number like '${search_string}'
+        </sql:query>
          <table border="10" cellpadding="10">
         
          <tr>

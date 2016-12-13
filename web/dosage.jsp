@@ -6,7 +6,7 @@
 
 <jsp:directive.include file="sqllink.jsp"/>
 <jsp:useBean id="dos" class="com.otc.Dosage" scope="session"/>
-
+<jsp:useBean id="dr" class="com.otc.Drug" scope="session"/>
 <html>
     <head><title>Drug</title>
   

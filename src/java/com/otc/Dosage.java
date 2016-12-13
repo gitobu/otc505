@@ -17,7 +17,7 @@ public class Dosage {
     private int quantity_max;
     private int period_min;
     private int period_max;
-     private int period_unit_id;
+    private int period_unit_id;
     
     public void setDrug_number(int dno){
         drug_number = dno;

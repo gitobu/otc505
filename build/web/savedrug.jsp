@@ -71,8 +71,8 @@
             values ('${drug_number}', 
                                     '${drug_name}',
                                     '${drug_strength}',
-                                    ${drug_form_id},
-                                    <%--
+                                    ${drug_form_id} <%--,
+                                   
                                     ${age_min},
                                     ${age_max},
                                     ${quantity_min},
@@ -93,7 +93,7 @@
         SELECT drug.drug_number, 
         drug.drug_name, 
         drug.drug_strength, 
-        drug_form.drug_form_description,
+        drug_form.drug_form_description
         <%--
         drug.age_min, 
         drug.age_max, 
@@ -101,13 +101,14 @@
         drug.quantity_max, 
         drug.period_min, 
         drug.period_max, 
-        --%>
+        
         drug.overdose_quantity, 
         drug.overdose_period, 
         period_unit.period_unit_description 
-	FROM drug, drug_form, period_unit
+        --%>
+	FROM drug, drug_form
 	WHERE drug.drug_form_id = drug_form.drug_form_id
-	AND drug.period_unit_id = period_unit.period_unit_id
+	
         AND drug.drug_number = '${drug_number}'
 	
         </sql:query>
@@ -126,10 +127,11 @@
             <th>Max Quantity</th>
             <th>Min Period</th>
             <th>Max Period</th>
-        --%>
+       
             <th>Overdose Quantity</th>
             <th>Overdose Period</th>
             <th>Overdose Period Description</th>
+           --%>  
             <th>Update</th>
          </tr>
          <c:forEach var="row" items="${dr_list.rows}">
@@ -145,10 +147,11 @@
             <td><c:out value="${row.quantity_max}"/></td>
             <td><c:out value="${row.period_min}"/></td>
             <td><c:out value="${row.period_max}"/></td>
-        --%>
+        
             <td><c:out value="${row.overdose_quantity}"/></td>
             <td><c:out value="${row.overdose_period}"/></td>
             <td><c:out value="${row.period_unit_description}"/></td>
+            --%>
             <td><a href="<c:url value="drug.jsp?drug_number=${row.drug_number}"/>">Edit</a></td>
          </tr>
          </c:forEach>

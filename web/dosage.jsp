@@ -6,7 +6,7 @@
 
 <jsp:directive.include file="sqllink.jsp"/>
 <jsp:useBean id="dos" class="com.otc.Dosage" scope="session"/>
-<jsp:useBean id="dr" class="com.otc.Drug" scope="session"/>
+
 <html>
     <head><title>Drug</title>
   
@@ -29,7 +29,11 @@
     </head>
     
     <body>
-
+        <sql:query dataSource="${snapshot}" var="pu">
+        SELECT period_unit_id, period_unit_description
+        FROM period_unit
+        ORDER BY period_unit_description
+        </sql:query>
         
         <form name="drug" action="savedosage.jsp" method="POST">
          <table border="10" cellpadding="10" align="center">  

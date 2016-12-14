@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="dr" class="com.otc.Drug" scope="session"/>
-<jsp:useBean id="dos" class="com.otc.Dosage" scope="session"/>
+
 <jsp:directive.include file="sqllink.jsp"/>
 <!DOCTYPE html>
 <html>

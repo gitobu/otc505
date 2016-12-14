@@ -155,10 +155,7 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write(" \n");
       out.write("        \n");
-      out.write("        ");
-      if (_jspx_meth_sql_query_3(_jspx_page_context))
-        return;
-      out.write("\n");
+      out.write("      \n");
       out.write("        \n");
       out.write("        <form name=\"drug\" action=\"savedrug.jsp\" method=\"POST\">\n");
       out.write("         <table border=\"10\" cellpadding=\"10\" align=\"center\">  \n");
@@ -204,13 +201,6 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
               out.write("\"></td></tr>\n");
               out.write("              ");
               out.write("\n");
-              out.write("             <tr><th align=\"left\">Overdose Quantity</th><td><input type=\"text\" name=\"overdose_quantity\" value=\"");
-              out.print( dr.getOverdose_quantity() );
-              out.write("\"></td> </tr>\n");
-              out.write("             <tr><th align=\"left\">Overdose Period</th><td><input type=\"text\" name=\"overdose_period\" value=\"");
-              out.print( dr.getOverdose_period() );
-              out.write("\"></td> </tr>\n");
-              out.write("             \n");
               out.write("              \n");
               out.write("             ");
               int evalDoAfterBody = _jspx_th_c_when_2.doAfterBody();
@@ -400,16 +390,6 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("\n");
         out.write("        ");
         out.write("\n");
-        out.write("        ");
-        org.apache.jasper.runtime.JspRuntimeLibrary.handleSetPropertyExpression(_jspx_page_context.findAttribute("dr"), "overdose_quantity", "${overdose_quantity}", _jspx_page_context, null);
-        out.write("\n");
-        out.write("        ");
-        org.apache.jasper.runtime.JspRuntimeLibrary.handleSetPropertyExpression(_jspx_page_context.findAttribute("dr"), "overdose_period", "${overdose_period}", _jspx_page_context, null);
-        out.write("\n");
-        out.write("        ");
-        org.apache.jasper.runtime.JspRuntimeLibrary.handleSetPropertyExpression(_jspx_page_context.findAttribute("dr"), "period_unit_id", "${period_unit_id}", _jspx_page_context, null);
-        out.write("\n");
-        out.write("        \n");
         out.write("        \n");
         out.write("    ");
         int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
@@ -470,16 +450,14 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("        drug.drug_name, \n");
           out.write("        drug.drug_strength,\n");
           out.write("        drug.drug_form_id,\n");
-          out.write("        drug_form.drug_form_description, \n");
+          out.write("        drug_form.drug_form_description \n");
           out.write("        ");
           out.write("\n");
-          out.write("        drug.overdose_quantity, \n");
-          out.write("        drug.overdose_period,\n");
-          out.write("        drug.period_unit_id,\n");
-          out.write("        period_unit.period_unit_description \n");
-          out.write("\tFROM drug, drug_form, period_unit\n");
+          out.write("        FROM drug, drug_form");
+          out.write("\n");
           out.write("\tWHERE drug.drug_form_id = drug_form.drug_form_id\n");
-          out.write("\tAND drug.period_unit_id = period_unit.period_unit_id\n");
+          out.write("\t");
+          out.write("\n");
           out.write("\tAND drug.drug_number = ");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${drug_number}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\n");
@@ -545,23 +523,6 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\n");
           out.write("        ");
           out.write("\n");
-          out.write("        ");
-          if (_jspx_meth_c_set_8((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write("\n");
-          out.write("        ");
-          if (_jspx_meth_c_set_9((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write("\n");
-          out.write("        ");
-          if (_jspx_meth_c_set_10((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write("\n");
-          out.write("        ");
-          if (_jspx_meth_c_set_11((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write("\n");
-          out.write("       \n");
           out.write("        ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -677,82 +638,6 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_set_8(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:set
-    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_8 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
-    _jspx_th_c_set_8.setPageContext(_jspx_page_context);
-    _jspx_th_c_set_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
-    _jspx_th_c_set_8.setVar("overdose_quantity");
-    _jspx_th_c_set_8.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${row.overdose_quantity}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_set_8 = _jspx_th_c_set_8.doStartTag();
-    if (_jspx_th_c_set_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_8);
-      return true;
-    }
-    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_8);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_set_9(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:set
-    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_9 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
-    _jspx_th_c_set_9.setPageContext(_jspx_page_context);
-    _jspx_th_c_set_9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
-    _jspx_th_c_set_9.setVar("overdose_period");
-    _jspx_th_c_set_9.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${row.overdose_period}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_set_9 = _jspx_th_c_set_9.doStartTag();
-    if (_jspx_th_c_set_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_9);
-      return true;
-    }
-    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_9);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_set_10(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:set
-    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_10 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
-    _jspx_th_c_set_10.setPageContext(_jspx_page_context);
-    _jspx_th_c_set_10.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
-    _jspx_th_c_set_10.setVar("period_unit_id");
-    _jspx_th_c_set_10.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${row.period_unit_id}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_set_10 = _jspx_th_c_set_10.doStartTag();
-    if (_jspx_th_c_set_10.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_10);
-      return true;
-    }
-    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_10);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_set_11(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:set
-    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_11 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
-    _jspx_th_c_set_11.setPageContext(_jspx_page_context);
-    _jspx_th_c_set_11.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
-    _jspx_th_c_set_11.setVar("period_unit_description");
-    _jspx_th_c_set_11.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${row.period_unit_description}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_set_11 = _jspx_th_c_set_11.doStartTag();
-    if (_jspx_th_c_set_11.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_11);
-      return true;
-    }
-    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_11);
-    return false;
-  }
-
   private boolean _jspx_meth_c_when_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -767,7 +652,7 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
       do {
         out.write("\n");
         out.write("         ");
-        if (_jspx_meth_c_set_12((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_1, _jspx_page_context))
+        if (_jspx_meth_c_set_8((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_1, _jspx_page_context))
           return true;
         out.write("\n");
         out.write("   ");
@@ -784,22 +669,22 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_set_12(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_1, PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_set_8(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:set
-    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_12 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
-    _jspx_th_c_set_12.setPageContext(_jspx_page_context);
-    _jspx_th_c_set_12.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_1);
-    _jspx_th_c_set_12.setVar("drug_number");
-    _jspx_th_c_set_12.setValue(new String(""));
-    int _jspx_eval_c_set_12 = _jspx_th_c_set_12.doStartTag();
-    if (_jspx_th_c_set_12.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_12);
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_8 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_8.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_1);
+    _jspx_th_c_set_8.setVar("drug_number");
+    _jspx_th_c_set_8.setValue(new String(""));
+    int _jspx_eval_c_set_8 = _jspx_th_c_set_8.doStartTag();
+    if (_jspx_th_c_set_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_8);
       return true;
     }
-    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_12);
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_8);
     return false;
   }
 
@@ -828,15 +713,14 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("        SELECT drug.drug_number, \n");
           out.write("        drug.drug_name, \n");
           out.write("        drug.drug_strength, \n");
-          out.write("        drug_form.drug_form_description,\n");
+          out.write("        drug_form.drug_form_description\n");
           out.write("        ");
           out.write("\n");
-          out.write("        drug.overdose_quantity, \n");
-          out.write("        drug.overdose_period, \n");
-          out.write("        period_unit.period_unit_description \n");
           out.write("\tFROM drug, drug_form, period_unit\n");
           out.write("\tWHERE drug.drug_form_id = drug_form.drug_form_id\n");
-          out.write("\tAND drug.period_unit_id = period_unit.period_unit_id\n");
+          out.write("\t");
+          out.write("\n");
+          out.write("\n");
           out.write("\tORDER BY drug_name\n");
           out.write("        ");
           int evalDoAfterBody = _jspx_th_sql_query_1.doAfterBody();
@@ -909,54 +793,6 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_sql_query_3(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  sql:query
-    org.apache.taglibs.standard.tag.rt.sql.QueryTag _jspx_th_sql_query_3 = (org.apache.taglibs.standard.tag.rt.sql.QueryTag) _jspx_tagPool_sql_query_var_dataSource.get(org.apache.taglibs.standard.tag.rt.sql.QueryTag.class);
-    _jspx_th_sql_query_3.setPageContext(_jspx_page_context);
-    _jspx_th_sql_query_3.setParent(null);
-    _jspx_th_sql_query_3.setDataSource((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${snapshot}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_sql_query_3.setVar("pu");
-    int[] _jspx_push_body_count_sql_query_3 = new int[] { 0 };
-    try {
-      int _jspx_eval_sql_query_3 = _jspx_th_sql_query_3.doStartTag();
-      if (_jspx_eval_sql_query_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        if (_jspx_eval_sql_query_3 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-          out = _jspx_page_context.pushBody();
-          _jspx_push_body_count_sql_query_3[0]++;
-          _jspx_th_sql_query_3.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
-          _jspx_th_sql_query_3.doInitBody();
-        }
-        do {
-          out.write("\n");
-          out.write("        SELECT period_unit_id, period_unit_description\n");
-          out.write("        FROM period_unit\n");
-          out.write("        ORDER BY period_unit_description\n");
-          out.write("        ");
-          int evalDoAfterBody = _jspx_th_sql_query_3.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-        if (_jspx_eval_sql_query_3 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE)
-          out = _jspx_page_context.popBody();
-          _jspx_push_body_count_sql_query_3[0]--;
-      }
-      if (_jspx_th_sql_query_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_sql_query_3[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_sql_query_3.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_sql_query_3.doFinally();
-      _jspx_tagPool_sql_query_var_dataSource.reuse(_jspx_th_sql_query_3);
-    }
-    return false;
-  }
-
   private boolean _jspx_meth_c_when_3(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -986,10 +822,7 @@ public final class drug_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                </td> \n");
         out.write("             </tr>\n");
         out.write("             ");
-        out.write("\n");
-        out.write("            <tr><th align=\"left\">Overdose Quantity</th><td><input type=\"text\" name=\"overdose_quantity\" /></td> </tr>\n");
-        out.write("             <tr><th align=\"left\">Overdose Period</th><td><input type=\"text\" name=\"overdose_period\" /></td> </tr>\n");
-        out.write("             \n");
+        out.write(" \n");
         out.write("               \n");
         out.write("            ");
         int evalDoAfterBody = _jspx_th_c_when_3.doAfterBody();

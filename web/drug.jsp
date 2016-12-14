@@ -48,7 +48,7 @@
         drug.drug_name, 
         drug.drug_strength,
         drug.drug_form_id,
-        drug_form.drug_form_description, 
+        drug_form.drug_form_description 
         <%-- 
         drug.age_min, 
         drug.age_max, 
@@ -56,14 +56,16 @@
         drug.quantity_max, 
         drug.period_min, 
         drug.period_max, 
-        --%>
+        
         drug.overdose_quantity, 
         drug.overdose_period,
         drug.period_unit_id,
-        period_unit.period_unit_description 
-	FROM drug, drug_form, period_unit
+       
+        period_unit.period_unit_description  
+        --%>
+        FROM drug, drug_form<%--, period_unit--%>
 	WHERE drug.drug_form_id = drug_form.drug_form_id
-	AND drug.period_unit_id = period_unit.period_unit_id
+	<%--AND drug.period_unit_id = period_unit.period_unit_id--%>
 	AND drug.drug_number = ${drug_number}
         </sql:query>
         
@@ -81,12 +83,12 @@
         <c:set var="quantity_max" value="${row.quantity_max}"/>
         <c:set var="period_min" value="${row.period_min}"/>
         <c:set var="period_max" value="${row.period_max}"/>
-        --%>
+        
         <c:set var="overdose_quantity" value="${row.overdose_quantity}"/>
         <c:set var="overdose_period" value="${row.overdose_period}"/>
         <c:set var="period_unit_id" value="${row.period_unit_id}"/>
         <c:set var="period_unit_description" value="${row.period_unit_description}"/>
-       
+       --%>
         </c:forEach> 
 
         <jsp:setProperty name="dr" property="drug_number" value="${drug_number}"/>
@@ -100,11 +102,11 @@
         <jsp:setProperty name="dr" property="quantity_max" value="${quantity_max}"/>
         <jsp:setProperty name="dr" property="period_min" value="${period_min}"/>
         <jsp:setProperty name="dr" property="period_max" value="${period_max}"/>
-        --%>
+        
         <jsp:setProperty name="dr" property="overdose_quantity" value="${overdose_quantity}"/>
         <jsp:setProperty name="dr" property="overdose_period" value="${overdose_period}"/>
         <jsp:setProperty name="dr" property="period_unit_id" value="${period_unit_id}"/>
-        
+        --%>
         
     </c:when>
     <c:when test='${new_mode}'>
@@ -118,7 +120,7 @@
         SELECT drug.drug_number, 
         drug.drug_name, 
         drug.drug_strength, 
-        drug_form.drug_form_description,
+        drug_form.drug_form_description
         <%--
         drug.age_min, 
         drug.age_max, 
@@ -126,13 +128,15 @@
         drug.quantity_max, 
         drug.period_min, 
         drug.period_max, 
-        --%>
+        
         drug.overdose_quantity, 
         drug.overdose_period, 
         period_unit.period_unit_description 
+        --%>
 	FROM drug, drug_form, period_unit
 	WHERE drug.drug_form_id = drug_form.drug_form_id
-	AND drug.period_unit_id = period_unit.period_unit_id
+	<%--AND drug.period_unit_id = period_unit.period_unit_id        --%>
+
 	ORDER BY drug_name
         </sql:query>
         
@@ -142,11 +146,7 @@
         ORDER BY drug_form_description
         </sql:query> 
         
-        <sql:query dataSource="${snapshot}" var="pu">
-        SELECT period_unit_id, period_unit_description
-        FROM period_unit
-        ORDER BY period_unit_description
-        </sql:query>
+      
         
         <form name="drug" action="savedrug.jsp" method="POST">
          <table border="10" cellpadding="10" align="center">  

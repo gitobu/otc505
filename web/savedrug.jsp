@@ -156,9 +156,9 @@
          </tr>
          </c:forEach>
          </table>
-         
+          
          <jsp:directive.include file="uses.jsp"/>
-         <%--     
+          <%--   
          <form name="drug" action="savedrug.jsp" method="POST">
          <table border="10" cellpadding="10" align="center">  
              <caption>

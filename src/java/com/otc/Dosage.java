@@ -10,7 +10,7 @@ package com.otc;
  * @author Gitobu
  */
 public class Dosage {
-    private int drug_number;
+    private String drug_number;
     private int age_min;
     private int age_max;
     private int quantity_min;
@@ -21,7 +21,7 @@ public class Dosage {
     private int overdose_period;
     private int period_unit_id;
     
-    public void setDrug_number(int dno){
+    public void setDrug_number(String dno){
         drug_number = dno;
     }
     public void setAge_min(int ami){
@@ -51,26 +51,26 @@ public class Dosage {
     public void setOverdose_period (int ovp){
         overdose_period = ovp;
         }
-    public int getDrug_number(){
+    public String getDrug_number(){
         return drug_number;
     }
     public int getAge_min(){
-        return drug_number;
+        return age_min;
     }
     public int getAge_max(){
-        return drug_number;
+        return age_max;
     }
     public int getQuantity_min(){
-        return drug_number;
+        return quantity_min;
     }
     public int getQuantity_max(){
-        return drug_number;
+        return quantity_max;
     }
     public int getPeriod_min(){
-        return drug_number;
+        return period_min;
     }
     public int getPeriod_max(){
-        return drug_number;
+        return period_max;
     }
     public int getOverdose_quantity(){
         return overdose_quantity;

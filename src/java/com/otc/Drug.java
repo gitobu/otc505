@@ -10,12 +10,12 @@ package com.otc;
  * @author Gitobu
  */
 public class Drug {
-   private int drug_number;
+   private String drug_number;
     private String drug_name; 
     private String  drug_strength; 
     private int drug_form_id; 
 
-    public void setDrug_number(int dnu){
+    public void setDrug_number(String dnu){
         drug_number = dnu;
 	}
     public void setDrug_name(String dna){
@@ -31,7 +31,7 @@ public class Drug {
    
   
     
-    public int getDrug_number(){
+    public String getDrug_number(){
         return drug_number;
 	}
     public String getDrug_name(){

@@ -10,16 +10,16 @@ package com.otc;
  * @author Gitobu
  */
 public class Drug_use_warnings {
-    private int drug_number;
+    private String drug_number;
     private int use_warning_id;
     
-    public void setDrug_number(int dno){
+    public void setDrug_number(String dno){
         drug_number = dno;
     }
     public void setUse_warning_id(int uwi){
         use_warning_id = uwi;
     }
-    public int getDrug_number(){
+    public String getDrug_number(){
         return drug_number;
     }
     public int getUse_warning_id(){

@@ -37,39 +37,43 @@
         where d.drug_number in  (select distinct drug_number from uses where drug_use_id in (select drug_use_id from uses where drug_number = 305730150309));
         </sql:query>
         --%>
+         <c:set var="drug_number" value="<%= request.getParameter("drug_number")%>" />
+         
         <sql:query dataSource="${snapshot}" var="drug_compare">
-        SELECT d.drug_number, 
-        d.drug_name, 
-        du.drug_use,
-        al.age,
-        dw.drug_warning
-        FROM drug d 
+        SELECT distinct d2.drug_number, d2.drug_name, du.drug_use, al.age, dw.drug_warning
+        from 
+        (select drug_number, drug_use_id
+        from uses
+        where drug_number = ${drug_number}) u1
+        left join uses u2 on u1.drug_use_id = u2.drug_use_id
+        join drug d on u2.drug_number = d.drug_number
+        left join drug d2 on u2.drug_number = d2.drug_number
         JOIN drug_form df ON d.drug_form_id = df.drug_form_id 
-        JOIN period_unit pu ON d.period_unit_id = pu.period_unit_id
-        JOIN vw_drug_use du ON d.drug_number = du.drug_number
-        JOIN vw_drug_warning dw ON d.drug_number = dw.drug_number
-        JOIN vw_age_limits al ON d.drug_number = al.drug_number
-        WHERE d.drug_number like '${search_string}'
+        JOIN vw_drug_use du ON d2.drug_number = du.drug_number
+        JOIN vw_drug_warning dw ON d2.drug_number = dw.drug_number
+        JOIN vw_age_limits al ON d2.drug_number = al.drug_number;
+	
         </sql:query>
          <table border="10" cellpadding="10">
-        
+             
          <tr>
-             <th>Drug Number</th>
+             <tr>
+          
             <th>Drug Name</th>
+            <th>Uses</th>
             <th>Age</th>
-            <th>Dosage</th>
-            <th>Drug Use</th>
+           
             <th>Warnings</th>
          </tr>
          
          <c:forEach var="row" items="${drug_compare.rows}">
-         <tr>   
-             <td><c:out value="${row.drug_number}"/></td>
-             <td><c:out value="${row.drug_name}"/></td>
-             <td><c:out value="${row.age}"/></td>
-            <td><c:out value="${row.dosage}"/></td>
+         <tr> 
+         
+            <td><c:out value="${row.drug_name}"/></td>
             <td><c:out value="${row.drug_use}"/></td>
-            <td><c:out value="${row.drug_warning}"/></td>        
+            <td><a href="<c:url value="dosagedetails.jsp?drug_number=${row.drug_number}"/>"><c:out value="${row.age}"/></a></td>
+            
+            <td><c:out value="${row.drug_warning}"/></td>   
             
          </tr>
          </c:forEach>

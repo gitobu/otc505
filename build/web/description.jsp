@@ -46,5 +46,13 @@
             <tr><th align="left">Warnings</th><td><c:out value="${row.drug_warning}"/></td></tr>
             </c:forEach>
         </table>
+        <table border="10" cellpadding="10">
+           
+        <form name="sim_drugs" action="comparedrugs.jsp">
+          <input type="hidden" name="drug_number" value="'${search_string}'">
+            
+            <tr><td><input type="submit" value="Similar drugs"></td></tr>
+        </form>
+        </table>
     </body>
 </html>
